@@ -4,7 +4,7 @@
 
 - Node.js >= v18.x
 - npm >= v9 (usually bundled with Nodejs)
-- gitbash
+- git bash (for command terminal)
 <br/>
 
 ## Getting Started
