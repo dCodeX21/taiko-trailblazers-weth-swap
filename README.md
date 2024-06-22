@@ -36,6 +36,7 @@ $ cp .env.example .env
 
 Then define all the variables needed.
 <br/>
+<br/>
 
 ## Running the script
 
@@ -53,4 +54,3 @@ $ node withdraw_ETH.js
 ```
 
 This will execute the withdrawal script, which swaps the WETH back to ETH
-<br/>
