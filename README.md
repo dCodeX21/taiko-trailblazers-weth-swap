@@ -15,7 +15,12 @@
 $ git clone https://github.com/dCodeX21/taiko-trailblazers-weth-swap.git
 ```
 
-After cloning the repository, install dependencies by running:
+Go to the downloaded repository
+```
+$ cd taiko-trailblazers-weth-swap
+```
+
+Install dependencies by running:
 
 ```
 $ npm install
