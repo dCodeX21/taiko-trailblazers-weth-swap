@@ -64,7 +64,7 @@ async function depositETH(sendIndex) {
 
     const formattedDate = formatDateToTimezone(date, 'Asia/Manila');
 
-    console.log(`\n${sendIndex + 1}. \x1b[91m${amountSent}\x1b[0m ETH deposit success @ \x1b[93m${formattedDate}\x1b[0m with Block # \x1b[32m${blockNumber}\x1b[0m`);
+    console.log(`\n${sendIndex + 1}. \x1b[91m${amountSent}\x1b[0m ETH wrap (deposit) success @ \x1b[93m${formattedDate}\x1b[0m with Block # \x1b[32m${blockNumber}\x1b[0m`);
 
     console.log(`   Transaction hash: \x1b[96m${transactionReceipt.transactionHash}\x1b[0m`);
 
@@ -74,7 +74,7 @@ async function depositETH(sendIndex) {
 
     totalWETHBalance = parseFloat(web3.utils.fromWei((wethBalance).toString(), 'ether'));
 
-    console.log('\nTotal WETH balance: \x1b[95m' + totalWETHBalance.toFixed(8) + '\x1b[0m WETH');
+    console.log('Total WETH balance: \x1b[95m' + totalWETHBalance.toFixed(8) + '\x1b[0m WETH');
   } catch (depositError) {
     console.error(`Error depositing ETH:`, depositError);
   }
@@ -88,16 +88,14 @@ async function depositETH(sendIndex) {
     return;
   }
 
-  const randomTimeOut = getRandomTimeOut();
-
   setTimeout(() => {
     depositETH(sendIndexNew);
-  }, randomTimeOut);
+  }, 30000);
 }
 
 //===================================//
 async function finalizeTransaction() {
-  console.log('\n\x1b[94mAll transactions completed.\x1b[0m');
+  console.log('\x1b[94mAll Wrap ETH (Deposit) Transactions Completed.\x1b[0m');
 
   console.log('Overall ETH deposit: \x1b[91m' + totalAmountDeposited.toFixed(8) + '\x1b[0m ETH');
 
@@ -107,7 +105,7 @@ async function finalizeTransaction() {
 
   totalWETHBalance = parseFloat(web3.utils.fromWei((wethBalance).toString(), 'ether'));
 
-  console.log('\nOverall WETH balance: \x1b[95m' + totalWETHBalance.toFixed(8) + '\x1b[0m WETH');
+  console.log('Overall WETH balance: \x1b[95m' + totalWETHBalance.toFixed(8) + '\x1b[0m WETH');
 
   const queryRemainingBalance = await web3.eth.getBalance(account.address);
 
@@ -123,14 +121,6 @@ function getRandomAmount() {
   const randomValue = Math.random() * (max - min) + min;
   const roundedValue = randomValue.toFixed(8);
   return roundedValue.toString();
-}
-
-//===================================//
-function getRandomTimeOut() {
-  const min = parseInt(process.env.DEPOSIT_RANDOM_TIME_MIN);
-  const max = parseInt(process.env.DEPOSIT_RANDOM_TIME_MAX);
-  const randomValue = Math.floor(Math.random() * (max - min)) + min;
-  return randomValue;
 }
 
 //===================================//
