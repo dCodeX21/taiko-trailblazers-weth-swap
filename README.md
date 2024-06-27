@@ -48,9 +48,13 @@ git fetch --all --tags
 ```
 git checkout tags/<latest tag>
 ```
+<br/>
+
 > Example: `git checkout tags/v1.1`
 
 This will fetch all latest updates from the github repository and will checkout to the latest tag.
+<br/>
+<br/>
 
 > [!NOTE]
 > If you want to use the previous script, you can do so by checking out on the old tag using the command:
