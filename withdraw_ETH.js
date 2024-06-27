@@ -105,7 +105,7 @@ async function withdrawETH(sendIndex) {
 
   setTimeout(() => {
     withdrawETH(sendIndexNew);
-  }, 30000);
+  }, 20000);
 }
 
 //===================================//

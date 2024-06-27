@@ -49,7 +49,7 @@ function runBothScripts(firstScript, firstHeader, secondScript, secondHeader) {
 rl.question('Choose the action you want to perform:\n1. Wrap (Deposit) Ethereum\n2. Unwrap (Withdraw) Ethereum\n3. Do Both\nEnter your choice (1, 2, or 3): ', (choice) => {
   if (choice === '1' || choice === '2' || choice === '3') {
     if (choice === '1') {
-      rl.question('\nHow many wrap (deposit) transactions? ', (count) => {
+      rl.question('\nHow many wrap (deposit) transactions to run? ', (count) => {
         if (!isNaN(count) && count > 0) {
           count = parseInt(count);
           process.env.DEPOSIT_TX_COUNT = count;
@@ -62,7 +62,7 @@ rl.question('Choose the action you want to perform:\n1. Wrap (Deposit) Ethereum\
         }
       });
     } else if (choice === '2') {
-      rl.question('\nHow many unwrap (withdraw) transactions? ', (count) => {
+      rl.question('\nHow many unwrap (withdraw) transactions to run? ', (count) => {
         if (!isNaN(count) && count > 0) {
           count = parseInt(count);
           process.env.WITHDRAW_TX_COUNT = count;
@@ -77,12 +77,12 @@ rl.question('Choose the action you want to perform:\n1. Wrap (Deposit) Ethereum\
     } else if (choice === '3') {
       rl.question('\nOrder of swapping to be executed:\n1. Wrap (Deposit) First\n2. Unwrap (Withdraw) First\nEnter the order number you want to run first: ', (order) => {
         if (order === '1' || order === '2') {
-          rl.question('\nHow many transactions for wrap (deposit)? ', (depositCount) => {
+          rl.question('\nHow many transactions for wrap (deposit) to run? ', (depositCount) => {
             if (!isNaN(depositCount) && depositCount > 0) {
               depositCount = parseInt(depositCount);
               process.env.DEPOSIT_TX_COUNT = depositCount;
               const scriptHeaderDep = depScriptHeader;
-              rl.question('How many transactions for unwrap (withdraw)? ', (withdrawCount) => {
+              rl.question('How many transactions for unwrap (withdraw) to run? ', (withdrawCount) => {
                 if (!isNaN(withdrawCount) && withdrawCount > 0) {
                   withdrawCount = parseInt(withdrawCount);
                   process.env.WITHDRAW_TX_COUNT = withdrawCount;

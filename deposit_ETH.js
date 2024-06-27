@@ -90,7 +90,7 @@ async function depositETH(sendIndex) {
 
   setTimeout(() => {
     depositETH(sendIndexNew);
-  }, 30000);
+  }, 20000);
 }
 
 //===================================//
