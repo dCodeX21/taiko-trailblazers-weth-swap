@@ -45,8 +45,17 @@ On the repo directory, update the files by running:
 ```
 git fetch --all --tags
 ```
+```
+git checkout tags/<latest tag>
+```
 
-This will update your local repo by fetching the latest files on the github repository.
+This will fetch all latest updates from the github repository and will checkout to the latest tag.
+
+> [!NOTE]
+> If you want to use the previous script, you can do so by checking out on the old tag using the command:
+> ```
+> git checkout tags/<old tag>
+> ```
 <br/>
 <br/>
 
@@ -58,4 +67,4 @@ Run the following command to start the script:
 $ node executeSwap.js
 ```
 
-This will execute the new script which will give you an option which transaction will run first.
+This will execute the new script which will give you an option on which transaction will run first.
